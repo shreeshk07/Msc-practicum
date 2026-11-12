@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Datasets and IOC lists — large and licensed by source
+data/raw/
+data/iocs/
+
+# Per-email output and experiment results
+results/per_email/
+results/figures/
+results/*.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Participant level study data. Not published, see README "Data and ethics".
+results/raw_sessions/
+results/manual/
+
+# Frozen outputs that are tracked (these override the results/*.csv rule above)
+!results/operational_v3b.csv
+!results/session_auto.csv
+!results/manual_results_template.csv

@@ -1,0 +1,22 @@
+# Core parsing
+mail-parser>=4.0.0      # high-level .eml parsing wrapping the stdlib email module
+tldextract>=5.1.0       # robust suffix-aware domain extraction
+beautifulsoup4>=4.12.0  # for HTML body parsing
+lxml>=5.0.0             # bs4 parser backend, also robust against malformed HTML
+
+# Authentication and DNS
+authheaders>=0.16.0     # parse RFC 7601 Authentication-Results headers
+dnspython>=2.6.0        # SPF/DMARC DNS lookups when needed
+
+# Configuration and reporting
+pyyaml>=6.0.0           # YAML rule and settings files
+jinja2>=3.1.0           # Markdown report templating
+python-dateutil>=2.8.0  # forgiving date parsing
+
+# Experiment and analysis
+pandas>=2.2.0           # CSV handling, joins, summary stats
+scipy>=1.11.0           # paired t-test, McNemar's test
+
+# Tests
+pytest>=8.0.0
+pytest-cov>=5.0.0
