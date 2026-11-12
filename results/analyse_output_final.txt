@@ -1,0 +1,123 @@
+{
+  "n": 20,
+  "confusion": {
+    "tp": 5,
+    "tn": 9,
+    "fp": 1,
+    "fn": 5
+  },
+  "precision": 0.8333,
+  "recall": 0.5,
+  "f1": 0.625,
+  "accuracy": 0.7,
+  "timing_seconds": {
+    "min": 0.009139,
+    "max": 0.063199,
+    "mean": 0.01527,
+    "median": 0.01192,
+    "stdev": 0.011482
+  },
+  "by_band": {
+    "LOW": {
+      "benign": 9,
+      "phishing": 5
+    },
+    "HIGH": {
+      "phishing": 4,
+      "benign": 1
+    },
+    "CRITICAL": {
+      "phishing": 1
+    }
+  },
+  "paired_test": {
+    "n_pairs": 200,
+    "auto_mean_seconds": 0.01527,
+    "auto_median_seconds": 0.01192,
+    "manual_mean_seconds": 164.4732,
+    "manual_median_seconds": 160.7175,
+    "mean_reduction_pct": 99.99,
+    "bootstrap_ci_low": 99.9896,
+    "bootstrap_ci_high": 99.9917,
+    "bootstrap_resamples": 5000,
+    "bootstrap_seed": 42,
+    "manual_precision": 0.906542,
+    "manual_recall": 0.97,
+    "manual_f1": 0.937198,
+    "kappa_per_participant": {
+      "P1": 0.25925925925925924,
+      "P2": 0.3999999999999999,
+      "P3": 0.326923076923077,
+      "P4": 0.27083333333333337,
+      "P5": 0.3999999999999999,
+      "P6": 0.25925925925925924,
+      "P7": 0.326923076923077,
+      "P8": 0.326923076923077,
+      "P9": 0.326923076923077,
+      "P10": 0.3999999999999999
+    },
+    "kappa_mean": 0.329704,
+    "kappa_min": 0.259259,
+    "kappa_max": 0.4,
+    "per_participant": {
+      "P1": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 169.2806,
+        "reduction_pct": 99.99
+      },
+      "P2": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 193.9655,
+        "reduction_pct": 99.99
+      },
+      "P3": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 156.86925,
+        "reduction_pct": 99.99
+      },
+      "P4": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 160.61805,
+        "reduction_pct": 99.99
+      },
+      "P5": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 161.40915,
+        "reduction_pct": 99.99
+      },
+      "P6": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 157.841,
+        "reduction_pct": 99.99
+      },
+      "P7": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 163.5929,
+        "reduction_pct": 99.99
+      },
+      "P8": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 158.65565,
+        "reduction_pct": 99.99
+      },
+      "P9": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 165.36225,
+        "reduction_pct": 99.99
+      },
+      "P10": {
+        "n_pairs": 20,
+        "manual_mean_seconds": 157.13765,
+        "reduction_pct": 99.99
+      }
+    },
+    "shapiro_p": 2.3e-05,
+    "test": "wilcoxon",
+    "statistic": 0.0,
+    "p_value": 0.0,
+    "cohen_d": 2.194333,
+    "mcnemar_b": 11,
+    "mcnemar_c": 58,
+    "mcnemar_p": 0.0
+  }
+}

@@ -1,0 +1,11 @@
+ess_1: 4.00
+ess_2: 4.00
+ess_3: 3.80
+ess_4: 4.10
+ess_5: 4.20
+ess_6: 4.40
+ess_7: 4.00
+ess_8: 4.00
+ess_9: 4.30
+overall: 4.09
+n_participants: 10

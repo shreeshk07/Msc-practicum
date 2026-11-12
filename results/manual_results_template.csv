@@ -1,0 +1,9 @@
+sha256,manual_verdict,manual_seconds,reason_1,reason_2,reason_3,evidence_completeness_0_to_10,notes
+# Fill one row per email triaged manually using docs/manual_checklist.md.
+# `sha256` joins to the auto-run CSV so analyse_results can pair the rows.
+# `manual_verdict` is one of: phishing, benign
+# `manual_seconds` is the wall-clock stopwatch time in seconds.
+# `reason_*` are short phrases (the strongest three signals you noticed).
+# `evidence_completeness_0_to_10` scores how many of the 10 checklist items you completed.
+# `notes` is a free-form column for anything else worth recording.
+# Lines starting with # are ignored.
