@@ -1,0 +1,58 @@
+Return-Path: <newsletter@notifications.example.com>
+Received: from mta-out-1.example.com (mta-out-1.example.com [203.0.113.45])
+        by mx.recipient.com (Postfix) with ESMTPS id ABCD12345
+        for <user@recipient.com>; Wed, 29 Apr 2026 14:22:31 +0000 (UTC)
+Authentication-Results: mx.recipient.com;
+        spf=pass (sender IP is 203.0.113.45) smtp.mailfrom=notifications.example.com;
+        dkim=pass (signature was verified) header.d=example.com;
+        dmarc=pass action=none header.from=example.com
+Received-SPF: pass (mx.recipient.com: domain of newsletter@notifications.example.com designates 203.0.113.45 as permitted sender)
+DKIM-Signature: v=1; a=rsa-sha256; d=example.com; s=mail-202604;
+        c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:To:MIME-Version:Content-Type;
+        bh=2jmj7l5rSw0yVb/vlWAYkK/YBwk=;
+        b=ABCDEFGH...
+Date: Wed, 29 Apr 2026 14:22:25 +0000
+From: "Example Newsletter" <newsletter@notifications.example.com>
+To: user@recipient.com
+Subject: Weekly digest from Example Inc.
+Message-ID: <20260429142225.benign-1@notifications.example.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="boundary42"
+X-Mailer: Example Mail Platform 4.2
+
+--boundary42
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hello,
+
+Here is your weekly product digest. Three new articles are available
+on our blog this week. You can read them at:
+
+https://www.example.com/blog/2026-04-29-roundup
+
+You can update your preferences at any time:
+https://www.example.com/account/preferences
+
+Thanks for subscribing.
+
+Example Inc.
+123 Main Street, Dublin, Ireland.
+You can unsubscribe here: https://www.example.com/unsubscribe?id=12345
+
+--boundary42
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<html><body>
+<p>Hello,</p>
+<p>Here is your weekly product digest. Three new articles are available
+on our blog this week. You can <a href="https://www.example.com/blog/2026-04-29-roundup">read them here</a>.</p>
+<p>You can <a href="https://www.example.com/account/preferences">update your preferences</a> at any time.</p>
+<p>Thanks for subscribing.</p>
+<p>Example Inc.<br>
+123 Main Street, Dublin, Ireland.<br>
+<a href="https://www.example.com/unsubscribe?id=12345">Unsubscribe</a>.</p>
+</body></html>
+
+--boundary42--

@@ -1,0 +1,57 @@
+Return-Path: <bounce@bulksender.tld>
+Received: from suspicious-host.example-bad.tld (suspicious-host.example-bad.tld [192.0.2.99])
+        by mx.recipient.com (Postfix) with ESMTPS id ZYXW9876
+        for <victim@recipient.com>; Mon, 27 Apr 2026 03:15:42 +0000 (UTC)
+Authentication-Results: mx.recipient.com;
+        spf=fail (sender IP is 192.0.2.99 not authorised) smtp.mailfrom=bulksender.tld;
+        dkim=none (no signature);
+        dmarc=fail action=quarantine header.from=paypa1.com
+Received-SPF: fail (mx.recipient.com: domain of bounce@bulksender.tld does not designate 192.0.2.99 as permitted sender)
+Date: Mon, 27 Apr 2026 03:15:30 +0000
+From: "PayPal Security Team" <security-alert@paypa1.com>
+Reply-To: <claims-agent@unrelated-mail.tld>
+To: victim@recipient.com
+Subject: URGENT: Your PayPal account will be suspended within 24 hours
+Message-ID: <20260427031530.bad-1@suspicious-host.example-bad.tld>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="alt-bd-99"
+X-Mailer:
+
+--alt-bd-99
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Dear Customer,
+
+We have detected unusual activity on your PayPal account. To prevent
+permanent suspension, you must verify your identity within 24 hours.
+
+Please confirm your account by clicking the secure link below and
+entering your password and full payment details:
+
+http://192.0.2.99/paypal-verify/login.php?session=abc123
+
+If you do not act now your account will be permanently closed and your
+funds will be unavailable. This is your final notice.
+
+Regards,
+PayPal Security Team
+
+--alt-bd-99
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<html><body>
+<p>Dear Customer,</p>
+<p>We have detected <b>unusual activity</b> on your PayPal account.
+To prevent <b>permanent suspension</b>, you must verify your identity
+within 24 hours.</p>
+<p>Please confirm your account by clicking the secure link below and
+entering your password and full payment details:</p>
+<p><a href="http://192.0.2.99/paypal-verify/login.php?session=abc123">https://www.paypal.com/secure/login</a></p>
+<p>If you do not act now your account will be permanently closed and
+your funds will be unavailable. This is your final notice.</p>
+<p>Regards,<br>PayPal Security Team</p>
+</body></html>
+
+--alt-bd-99--
