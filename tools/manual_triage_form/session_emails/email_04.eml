@@ -1,0 +1,246 @@
+Return-Path: info@service4943.cc
+Delivered-To: jose@monkey.org
+X-FDA: 83590496346.10.880B53B
+Received: from s1serv00431.cc (s1serv00431.cc [198.23.221.62])
+	by imf04.b.hostedemail.com (Postfix) with ESMTP id B1158160006
+	for <jose@monkey.org>; Tue, 24 Jun 2025 14:17:11 +0000 (UTC)
+Authentication-Results: imf04.b.hostedemail.com;
+	dkim=pass header.d=service4943.cc header.s=re1 header.b=cIIomKwS;
+	spf=softfail (imf04.b.hostedemail.com: 198.23.221.62 is neither permitted nor
+ denied by domain of info@service4943.cc) smtp.mailfrom=info@service4943.cc;
+	dmarc=pass (policy=none) header.from=service4943.cc
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=hostedemail.com;
+	s=arc-20220608; t=1750774631;
+	h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:in-reply-to:
+	 references:list-unsubscribe:dkim-signature;
+	bh=y+Ju1ZEEpz9fPtFWpw258E1sh9EfPnC7CC4Uo1CHTec=;
+	b=D6DxTcfE85xJ87H4cEyg2BKbbx2cV31fXi6L2HYedmQPoFiDm+OCZXbFKTVo1c7kaaTXsG
+	KKZazYbXo6fL2YuXRvA8g3JI/UiklFA60gAJ0UdkWCuvhX4qbpTeS8VbI7MXTNyIaIBnmN
+	ouKQ2WFo2JHR8oA08TAfF5XmwGOLDm8=
+ARC-Authentication-Results: i=1;
+	imf04.b.hostedemail.com;
+	dkim=pass header.d=service4943.cc header.s=re1 header.b=cIIomKwS;
+	spf=softfail (imf04.b.hostedemail.com: 198.23.221.62 is neither permitted nor
+ denied by domain of info@service4943.cc) smtp.mailfrom=info@service4943.cc;
+	dmarc=pass (policy=none) header.from=service4943.cc
+ARC-Seal: i=1; s=arc-20220608; d=hostedemail.com; t=1750774631; a=rsa-sha256;
+	cv=none;
+	b=QCWrRKK5SSdPlHYA/p3GomIuIttXot0MtnsTRX9dWspMwZy0ML3LCfz5AflLXeVi4RRd51
+	/6SN38wPiBnkL22lj8ybehy6LIlKjgCIJD+r07YwvM1rDijTT+A9uBc+jj541Kojv5dTvG
+	ruEYPp9+q0VID33PsLa7vXam7pzQJlI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=re1; d=service4943.cc;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:List-Unsubscribe:Content-Type:
+ Content-Transfer-Encoding; i=info@service4943.cc;
+ bh=y+Ju1ZEEpz9fPtFWpw258E1sh9EfPnC7CC4Uo1CHTec=;
+ b=cIIomKwSOXy/Dz/h/sSQS4eXujCxgj7ovzrzIBpAQxFn1Lpky2/XcIQ/jvMUqtQ9aMUGjZUs8niB
+   alPgdD7dDymyXnIF0/H2fDx9rNOWd2HbJ4M5wlyt2O3FOZ+QZgJWgCiyIa207aN/AosXuR/kZ1IO
+   V3LihiQcvJOURDWnRb4ULQ+vhKY3Gxtu1BgMxjQUGlCjqCHfNSbP7XMWi17eDYCx5R+Td4+7hRsr
+   RQmkVSBxWPewNzBlzrfaD2pJK2KeWWlk+Qw9U5Ovqkc/dNTZcUKvBbZ/hwRYcT1JfsozzLhD9ZoW
+   01gMWE626cB4SWq0VXLW7CMT1Ya29I01yuunyA==
+From: "Admin Update" <info@service4943.cc>
+To: jose@monkey.org
+Subject: Employee's Confirmation Required From monkey.org
+Date: 24 Jun 2025 07:17:08 -0700
+Message-ID: <20250624071708.57BD1B65F69F08B0@service4943.cc>
+MIME-Version: 1.0
+List-Unsubscribe: <mailto:info@service4943.cc>
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+X-Rspam-User: 
+X-Rspamd-Server: rspam07
+X-Rspamd-Queue-Id: B1158160006
+X-Stat-Signature: 4su79d1gpwg376s7f1ajw1hc87b87jcn
+X-Spam-Status: Yes, score=9.41
+X-HE-Tag: 1750774631-635380
+X-HE-Meta: 
+ U2FsdGVkX19+VbUM6YYFtZQ65ugM8VWds1yMoz/bArxeTN6FZoYR7OEiBo4jBKOTqgxBKeQ1TMn3IYUOTPn8Gk+Tm655Vs3qINuHwfvRM25KynIlNzTD7H9yhendfHK7Or5IzO47hmMYltreEJ4BKO7a1Hyh9aTrSXw7DB9a8Y2I5ZRBGfErn6c3Z6XLuApEsRhp52aNsG1crr06Sd6k/isokpfbLyHadDjwFVaHONdMYcCh58i9GfaQdGP3c4VkVNxbrVVLy8Aks9Gz3YOXkvDHkLBVvktV1/MuBRu/RpTYZekFacgIkNLTdnCQ+1ZCdAEK83sp0uw9R3YQRkC27m0zZ0Oj8wwBawsuRh7ZxV4770pdQih9q1/fXXRlIhThMiWt+nA6tUW+myrlxh7e29GzfCP1lvB1Z7c7FHgf4LNdKoZ7GmTcvdMXY92ZiO8HooAlmcvUGSK6FopIJyItwJIJTSmX99hSYoAVY6yWTSbe20eIkJhBSOYf1PZ5uO8XYuZRqq9V1ES5RTPiVioWtfJFs+YWaa3tCQtQ3AV4pMIvJnTrsxD8cyYxqcfKillEtubkc4wrPbFUO1kBVZ+R+9V54DRwC68wnz8tQbuozjhvQrf/fSuh2KGL0e8eAXdowvE7agnegy2zk0Yz+Exbj/qxvFcqafBghtOv3NFEEgrpWHxwrvOwd0qsEDuN9q1+PlGTZg9VGLozV9O4cmlsL2dDey+nlxxYrcRfbdZo32odv+r65bEfDlHOZECi4bDWrkW3HK3Sy/uJ/yN1XOuGbsIMbci104ggYrAdr+axcpYVjXmfUS42jvjIpzVG3pRjarFw9GPtFvoxV7KGFsNFrT0GdXTl9ZnQqVftvAghqV11uL1Bn25Sr5X0TzStkM21Q6eG3648vDrh1tpgBrV6pvs0wZfyETf3SqcI820kio8f9fhzZf9eCnvj7/IeXj9sgNetqFMKCqmupI0CkIBwUWqL5Su
+ azBRULmsWrh8vzfwvNlI6voZKyfES41bvP+qCoV4tcArjn5eIIPdecuz4sIDszquejeXpk0AXorF2V2oYbgMEIn73S0+xLO2guootttw8F2puzM6+85re9XRAtrWK3XkgPoXQRtDyZvUnyVVzc15TCp0CHYnxZ629L8ci+iE1TjF00Sz+mzg3GBHWXZtENDu6IcuDTqbOLep8dyHWfeWKSaUmfzn/DnP44ZTnB+VmQDp8ru20WIbdXKfI2IgkKCOmgY7LKsnHn+caw8HKp3rfwyhZU28JFwYFtnLKA60VzyYxQ39lLcPWpL7fPyZDoEK1vYT3FaI866kxpGhE+u99v1fkDjoOFExydm1okOPb3KfvypIJc8iW9YJN2f/n7v+KUA1tSWk709Ru/qNzor2xE/cHptCbZNeJytE8oGxOCy0hNy7JcZPF7lbpnpHfpNNt+Orfhe4yWokIgdw2NF53avR2eZ4OcqZONzGnmxYosCF5UAUxj3B+DJTu6X7LRz9XKjQmpn3llXKlTfBkp8rsoErR67kdHrEBdMaJY1G3c0wT0HTEAcFxkpcAyZEyiE6iNRA2m4cLcdS/GqolQwEQnbpokJON7nn6ZE4L89sa+Ft/AtKvTn3hTReRdVEqoHhYsZTV/0lO4VEPMTu0oQyenyRZZP4nT+J4lsu3VQ3koi5QXGmYZYe3CPlSPi1qDI2VUjIkoaSTv3FvlJvEO5JFmZIw1RbyvOcaX0YwIzf1AYZrUNGqRpI1QhfcrpOUilHK9NQaJg7ru/JZrJid8RVZK/Se78MAhGTpQkLwTjllP0Dm0qUGXwwW5K9/R/edpMxNQtJ9+wD4tBY5LSA=
+Status: O
+X-Status: 
+X-Keywords: 
+X-UID: 267
+
+<html>
+
+<head>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+</head>
+
+<body>
+    <div>&nbsp;</div>
+    <div class=3D"gmail_quote"><span data-type=3D"sender">&nbsp;</span>
+        <div style=3D"display: block;" data-type=3D"body">
+            <div class=3D"js-helper_mr_css_attr js-readmsg-msg_mr_css_attr"=
+ style=3D"display: block;">
+                <div style=3D"display: block;">
+                    <div id=3D"style_17278767241197314264_BODY_mr_css_attr"=
+ style=3D"display: block;">
+                        <div class=3D"cl_919254_mr_css_attr" style=3D"displ=
+ay: block;">
+                            <div style=3D"display: block;">&nbsp;</div>
+                            <div id=3D"xf662694db737401_mr_css_attr" style=
+=3D"display: block;">
+                                <div class=3D"rcmBody_mr_css_attr" style=3D=
+"display: block;">
+                                    <p align=3D"center"
+                                        style=3D'color: rgb(0, 0, 0); font-=
+family: "Segoe UI"; font-size: 16px; font-style: normal; font-weight: 400; =
+text-decoration: none; display: block; background-color: rgb(255, 255, 255)=
+; -webkit-margin-before: 1__qem; -webkit-margin-after: 1__qem; -webkit-marg=
+in-start: 0; -webkit-margin-end: 0;'>
+                                        Dear jose</p>
+                                    <p align=3D"center"
+                                        style=3D'color: rgb(0, 0, 0); font-=
+family: "Segoe UI"; font-size: 16px; font-style: normal; font-weight: 400; =
+text-decoration: none; display: block; background-color: rgb(255, 255, 255)=
+; -webkit-margin-before: 1__qem; -webkit-margin-after: 1__qem; -webkit-marg=
+in-start: 0; -webkit-margin-end: 0;'>
+                                        We have just finished updating the =
+email server.<br>We noticed some of the
+                                        employee's have left the company, b=
+ut still using email belonging to
+                                        monkey.org. <br><br>
+                                        Please confirm your email jose@monk=
+ey.org is still in use.<br>Note if confirmation
+                                        is not receive within 72 hours, the=
+n your email will be Remove/Deleted from the
+                                        Server monkey.org </p>
+                                    <div align=3D"center"
+                                        style=3D'color: rgb(0, 0, 0); font-=
+family: "Segoe UI"; font-size: 16px; font-style: normal; font-weight: 400; =
+text-decoration: none; display: block; background-color: rgb(255, 255, 255)=
+;'>
+                                        <div align=3D"center" style=3D"disp=
+lay: block;">
+                                            <div align=3D"center" style=3D"=
+display: block;">
+                                                <table width=3D"92%" align=
+=3D"center"
+                                                    style=3D"border-color: =
+gray; display: table; border-collapse: collapse; border-spacing: 2px;"
+                                                    border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0">
+                                                    <tbody valign=3D"middle=
+"
+                                                        style=3D"border-col=
+or: inherit; vertical-align: middle; display: table-row-group;">
+                                                        <tr valign=3D"inher=
+it"
+                                                            style=3D"border=
+-color: inherit; vertical-align: inherit; display: table-row;">
+                                                            <td align=3D"ce=
+nter" valign=3D"inherit"
+                                                                style=3D"bo=
+rder: currentColor; border-image: none; vertical-align: inherit; display: t=
+able-cell;">
+                                                                &nbsp;</td>=
+
+                                                        </tr>
+                                                        <tr valign=3D"inher=
+it"
+                                                            style=3D"border=
+-color: inherit; vertical-align: inherit; display: table-row;">
+                                                            <td align=3D"ce=
+nter" valign=3D"inherit"
+                                                                style=3D"bo=
+rder: currentColor; border-image: none; vertical-align: inherit; display: t=
+able-cell;">
+                                                                <table alig=
+n=3D"center"
+                                                                    style=
+=3D"border-color: gray; display: table; border-collapse: collapse; border-s=
+pacing: 2px;"
+                                                                    border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                                    <tbody =
+valign=3D"middle"
+                                                                        sty=
+le=3D"border-color: inherit; vertical-align: middle; display: table-row-gro=
+up;">
+                                                                        <tr=
+ valign=3D"inherit"
+                                                                           =
+ style=3D"border-color: inherit; vertical-align: inherit; display: table-ro=
+w;">
+                                                                           =
+ <td width=3D"288" height=3D"40" align=3D"center"
+                                                                           =
+     valign=3D"inherit"
+                                                                           =
+     style=3D"border: currentColor; border-image: none; vertical-align: inh=
+erit; display: table-cell;"
+                                                                           =
+     bgcolor=3D"#0000ff"><a
+                                                                           =
+         style=3D'color: rgb(255, 255, 255); text-transform: uppercase; lin=
+e-height: 40px; font-family: "Roboto",Arial; font-size: 14px; font-weight: =
+500; text-decoration: none; display: block;'
+                                                                           =
+         href=3D"https://googleads.g.doubleclick.net/pcs/click?xai=3DAKAOjs=
+sIdZGtK2LGw4coQMwtQcONuf8cVZUVHUrlFgT3_wiLCuxpoweUvHdBH9neY4iW-CZh2SzgITptx=
+6j64F0B2pEU0uoeRfmKTeyn7LSG5Irubqjv6IFl9MeqTp84ZT99WRJlZDMgrwUaUI7QjgNwL22A=
+VveJm980wuVNryiILT2WhxCPmcY8MPVIOygXT_382p7PUn7bIByn2OjlTfCiaqta3tAhZWCuROe=
+XZPznm5cGhgUYspVywPb8Y8GbuT5pyEUyF89icmqe5zg&sig=3DCg0ArKJSzFtr0kI2Y6Ll&adu=
+rl=3Dhttps://kqwrtc22a78763cbc4bd15dadcf0.ip-ddns.com#jose@monkey.org"
+                                                                           =
+         target=3D"_blank" rel=3D"noopener">
+                                                                           =
+         Confirm&nbsp;email in use-SIGN IN
+                                                                           =
+         Here</a></td>
+                                                                        </t=
+r>
+                                                                    </tbody=
+>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                &nbsp; <br>you may visit&nb=
+sp;<a
+                                                    href=3D"https://tinyurl=
+=2Ecom/ykvre3ps#/jose@monkey.org" target=3D"_blank"
+                                                    rel=3D"noopener">www.</=
+a>monkey.org to see email activity
+                                            </div>
+                                        </div>
+                                        <p align=3D"center"
+                                            style=3D"display: block; -webki=
+t-margin-before: 1__qem; -webkit-margin-after: 1__qem; -webkit-margin-start=
+: 0; -webkit-margin-end: 0;">
+                                            <span style=3D"font-size: small=
+;"><strong
+                                                    style=3D"font-weight: b=
+old;">&nbsp;</strong></span><span
+                                                style=3D"font-size: small;"=
+>&copy; 2025 monkey.org All rights
+                                                reserved</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+        <div style=3D"display: block;">&nbsp;</div>
+        <div style=3D"display: block;" data-signature-widget=3D"container">=
+
+            <div style=3D"display: block;" data-signature-widget=3D"content=
+">
+                <div style=3D"display: block;">&nbsp;</div>
+            </div>
+        </div>
+        <div style=3D"display: block;">&nbsp;</div>
+    </div>
+    <div id=3D"_rc_sig"></div>
+</body>
+
+</html>
+

