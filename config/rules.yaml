@@ -1,0 +1,191 @@
+# Rule definitions for the phishing triage scoring engine.
+#
+# Each rule carries:
+#   id          : short stable identifier used in audit logs
+#   category    : one of auth, header, url, content
+#   weight      : points added to the risk total when the rule fires
+#   description : short summary shown in reports
+#   rationale   : note explaining why this weight was chosen
+#
+# Risk band cut-offs (from settings.yaml) translate the total to:
+#   LOW       0 to 20
+#   MEDIUM    21 to 50
+#   HIGH      51 to 80
+#   CRITICAL  81+
+#
+# Auth rules are weighted higher than content rules because they
+# reflect cryptographic evidence rather than language heuristics.
+# URL and domain rules sit between the two.
+#
+# Negative weights are allowed: a fully passing SPF + DKIM + DMARC
+# alignment subtracts from the risk total. That models the standard
+# SOC heuristic that authenticated mail from a long-known sender is
+# rarely phishing. The scoring engine clamps the minimum total at 0.
+
+rules:
+
+  # Category: AUTH (RFC 7208 SPF, RFC 6376 DKIM, RFC 7489 DMARC)
+  - id: AUTH-001
+    category: auth
+    weight: 25
+    description: "SPF check failed (fail or softfail)"
+    rationale: "Strongest single phishing signal; the sending IP is not authorised by the From-domain owner."
+
+  - id: AUTH-002
+    category: auth
+    weight: 20
+    description: "DKIM signature missing or invalid"
+    rationale: "An unsigned message from a domain that normally signs is a strong tampering indicator."
+
+  - id: AUTH-003
+    category: auth
+    weight: 25
+    description: "DMARC failed (no alignment between From and SPF/DKIM domain)"
+    rationale: "DMARC alignment is the explicit anti-spoofing control; failure means the message would be rejected by a strict policy."
+
+  - id: AUTH-004
+    category: auth
+    weight: -10
+    description: "All of SPF, DKIM, and DMARC pass and align"
+    rationale: "Negative weight to lower false positives on legitimate authenticated mail; small magnitude so it cannot mask other strong signals."
+
+  - id: AUTH-005
+    category: auth
+    weight: 15
+    description: "Authentication-Results header is missing entirely"
+    rationale: "Receiving MTAs almost always add this header today; absence suggests bypassed mail flow or hand-crafted envelope."
+
+  - id: AUTH-006
+    category: auth
+    weight: 10
+    description: "AUTH-004 bonus suppressed when subject is a credential pretext"
+    rationale: "A compromised legitimate account authenticates fine, so AUTH-004's -10 bonus wrongly clears phishing sent from these senders. AUTH-006 adds +10 back to neutralise the bonus when the subject is a credential pretext. Calibration v1.2 finding: catches compromised-tenant phishing where SPF+DKIM+DMARC all pass."
+
+  # Category: HEADER anomalies
+  - id: HDR-001
+    category: header
+    weight: 15
+    description: "From-address domain differs from Return-Path domain"
+    rationale: "Classic spoofing pattern (e.g. 'PayPal Support <attacker@elsewhere.tld>'). Cheap to evaluate and rarely fires on legitimate mail."
+
+  - id: HDR-002
+    category: header
+    weight: 12
+    description: "Reply-To domain differs from From domain"
+    rationale: "Common in business email compromise where the attacker wants the victim's response to land elsewhere."
+
+  - id: HDR-003
+    category: header
+    weight: 8
+    description: "Display name impersonates a known brand keyword"
+    rationale: "Lower weight because it is heuristic and prone to false positives; only meaningful in combination with other signals."
+
+  - id: HDR-004
+    category: header
+    weight: 10
+    description: "X-Mailer header is absent"
+    rationale: "Bulk phishing kits often leave the X-Mailer field empty or use unusual values."
+
+  - id: HDR-005
+    category: header
+    weight: 10
+    description: "Routing path includes hops in unrelated geographies for the claimed sender"
+    rationale: "Free-mail phishing often relays through hosting providers in countries inconsistent with the brand being impersonated."
+
+  - id: HDR-006
+    category: header
+    weight: 15
+    description: "Subject names a brand that doesn't match the From-domain"
+    rationale: "Catches compromised-sender phishing where the From-domain is unrelated to the brand impersonated in the subject (e.g. 'Fifth Third Bank Account Alerts' from creditloiuse.com, or '(monkey.org) WARNING' from carrietot.com). Weight 15 matches HDR-001 since the signal strength is similar."
+
+  # Category: URL and domain indicators
+  - id: URL-001
+    category: url
+    weight: 20
+    description: "URL contains an IP address instead of a hostname"
+    rationale: "Legitimate organisations almost never use bare IPs in customer email; very high precision when it fires."
+
+  - id: URL-002
+    category: url
+    weight: 15
+    description: "Domain is registered less than 30 days before message date"
+    rationale: "Newly-registered domains correlate strongly with phishing campaigns (Han et al.; APWG trend reports)."
+
+  - id: URL-003
+    category: url
+    weight: 12
+    description: "URL uses a known URL-shortener or open redirector"
+    rationale: "Shorteners hide the destination from the recipient; legitimate corporate mail usually does not need them."
+
+  - id: URL-004
+    category: url
+    weight: 18
+    description: "Hostname contains the punycode marker xn--"
+    rationale: "Homograph attacks specifically aim to evade casual visual inspection by the user."
+
+  - id: URL-005
+    category: url
+    weight: 12
+    description: "URL hostname is a sub-domain of an unrelated parent domain"
+    rationale: "e.g. 'paypal.attacker.tld'. Sub-domain spoofing exploits how recipients read URLs left-to-right."
+
+  - id: URL-006
+    category: url
+    weight: 8
+    description: "URL exceeds the configured length threshold"
+    rationale: "Weaker signal; fires often on legitimate marketing mail, so weight is kept moderate."
+
+  - id: URL-007
+    category: url
+    weight: 25
+    description: "Domain or URL appears in a local IOC list (URLhaus or PhishTank cache)"
+    rationale: "Direct match against a curated indicator list; treat as strong evidence but still combinable with auth signals."
+
+  - id: URL-008
+    category: url
+    weight: 20
+    description: "First-hop redirector unwraps to a destination that trips a URL risk signal"
+    rationale: "Modern phishing hides the payload behind a reputable first hop: link trackers (acemlnc.com), ad-click redirectors (doubleclick.net), Microsoft Safe Links, or a base64-encoded redirect parameter. The per-URL rules only ever see the wrapper host, so they discard the destination entirely. SOC analysts routinely unwrap redirectors during triage; this rule does the same, extracting the embedded destination and re-checking THAT host for an IOC match, IP literal, punycode label, or high-risk TLD. It surfaces a signal currently thrown away, not a weight change. Fires only when the unwrapped destination differs from the first-hop host AND independently trips one of those signals, so a wrapper around a clean destination (e.g. a Safe Links URL pointing at docusign.net) does not fire. See docs/calibration_notes.md (v3b)."
+
+  # Category: BODY content signals
+  - id: CNT-001
+    category: content
+    weight: 8
+    description: "Body contains urgency or threat language (e.g. 'verify within 24 hours', 'account will be suspended')"
+    rationale: "Common phishing pretext but also appears in legitimate transactional mail; weight kept moderate."
+
+  - id: CNT-002
+    category: content
+    weight: 10
+    description: "Body asks for credentials, password resets, or payment details"
+    rationale: "Direct credential-harvest indicator; legitimate organisations almost never ask via email."
+
+  - id: CNT-003
+    category: content
+    weight: 8
+    description: "Email contains an attachment with executable or macro-bearing MIME type"
+    rationale: "Common malware delivery vector; risk higher when combined with auth failure."
+
+  - id: CNT-004
+    category: content
+    weight: 6
+    description: "HTML body contains hidden text, off-screen elements, or zero-width characters"
+    rationale: "Used to evade simple keyword filters; lower weight because some legitimate mail uses CSS hiding for accessibility."
+
+  - id: CNT-005
+    category: content
+    weight: 7
+    description: "Visible link text and underlying href point to different domains"
+    rationale: "Classic 'click here' deception; precise to evaluate on HTML mail."
+
+  - id: CNT-006
+    category: content
+    weight: 18
+    description: "Subject contains credential-theft pretext phrasing"
+    rationale: "Subject patterns like 'mailbox full' or 'password expire today' appear almost exclusively in credential-theft phishing, almost never in legitimate mail. Weight 18 puts compound cases above the MEDIUM threshold (>=21) when combined with even a weak signal."
+
+  - id: CNT-007
+    category: content
+    weight: 22
+    description: "Subject matches a known phishing-lure regex pattern"
+    rationale: "Eight of eleven v1.2 false negatives were compromised-sender phishing where the subject was a paraphrased credential pretext that CNT-006's literal-substring list missed (e.g. 'Mailbox Bandwith Storage Server is full' vs 'storage full', or 'Purchase-Order/SOA/Invoice/Payment' vs 'invoice payment'). Five regex pattern categories generalise over token order and separators: system-alert, financial-lure, file-sharing impersonation, HR-pretext, and credential keyword. Weight 22 is calibrated to flip score-zero AUTH-004-aligned cases (where AUTH-004 -10 and HDR-004 +10 cancel) above the MEDIUM threshold (>=21) without needing a second change to AUTH-006. See docs/calibration_notes.md v1.3."

@@ -1,0 +1,323 @@
+# PhishTriage runtime settings.
+# Kept separate from rules.yaml so that experiment ablations can swap
+# the rule set without touching general configuration.
+
+risk_bands:
+  # Inclusive lower bound. The engine assigns the highest band whose
+  # threshold is <= the total. Order top-down from least to most severe.
+  LOW:      0
+  MEDIUM:   21
+  HIGH:     51
+  CRITICAL: 81
+
+# Brands the heuristic display-name impersonation rule (HDR-003) checks
+# for. Kept here so SOC teams can extend without code changes.
+known_brand_keywords:
+  - paypal
+  - microsoft
+  - office365
+  - apple
+  - google
+  - amazon
+  - dhl
+  - fedex
+  - ups
+  - hmrc
+  - irs
+  - revenue
+  - aib
+  - bankofireland
+  - chase
+  - barclays
+  - santander
+  - dropbox
+  - docusign
+  - linkedin
+  - netflix
+  - facebook
+
+# Common URL shortener and open-redirector hostnames for URL-003.
+url_shorteners:
+  - bit.ly
+  - tinyurl.com
+  - goo.gl
+  - t.co
+  - ow.ly
+  - is.gd
+  - buff.ly
+  - rebrand.ly
+  - lnkd.in
+  - shorturl.at
+  - cutt.ly
+  - rb.gy
+  - tiny.one
+
+# Maximum URL length before URL-006 (long URL) fires.
+url_length_threshold: 150
+
+# Newly-registered domain threshold in days for URL-002.
+new_domain_days: 30
+
+# URL-008 first-hop redirector unwrapping. A URL is treated as a
+# redirector when its host matches one of url_redirector_hosts (suffix
+# match, so 'tradestar.lt.acemlnc.com' matches 'acemlnc.com' and
+# 'na01.safelinks.protection.outlook.com' matches the full Safe Links
+# host), OR it carries one of redirect_param_names, OR a parameter value
+# is a base64 blob that decodes to an http(s) URL. The engine extracts
+# the embedded destination and re-checks THAT host for IOC / IP /
+# punycode / suspicious-TLD risk. See docs/calibration_notes.md (v3b).
+url_redirector_hosts:
+  - acemlnc.com                        # ActiveCampaign link tracker
+  - doubleclick.net                    # Google Ads click redirector
+  - safelinks.protection.outlook.com   # Microsoft Safe Links wrapper
+
+# Redirect query-parameter names whose value holds the real destination.
+# Matched case-insensitively. Values may be percent-encoded or a base64
+# blob that itself decodes to a (possibly percent-encoded) URL.
+redirect_param_names:
+  - url
+  - redirecturl
+  - target
+  - u
+
+# High-risk TLDs checked only on an unwrapped redirector destination
+# (URL-008). Deliberately short and conservative; these recur in the
+# most-abused-TLD reports (Spamhaus, APWG). Kept out of the per-URL
+# rules so legitimate mail that merely links to one is not penalised.
+suspicious_tlds:
+  - zip
+  - mov
+  - top
+  - xyz
+  - tk
+  - gq
+  - work
+  - click
+  - country
+  - link
+
+# Phrases used by CNT-001 (urgency / threat language).
+# Matched case-insensitively as substrings against subject + body.
+urgency_phrases:
+  - urgent
+  - action required
+  - act now
+  - immediate action
+  - within 24 hours
+  - within 48 hours
+  - final notice
+  - last chance
+  - account will be suspended
+  - account will be closed
+  - account has been locked
+  - failure to comply
+  - verify immediately
+  - confirm immediately
+  - your access will be terminated
+  # Modern phishing patterns observed in Nazario 2024-2025 corpora
+  # (added in calibration v1; see docs/calibration_notes.md).
+  - expire today
+  - expires today
+  - expire in 1 day
+  - expire in 24
+  - has expired
+  - expired
+  - termination
+  - login termination
+  - avoid termination
+  - kindly proceed
+  - kindly login
+  - kindly verify
+  - storage is full
+  - storage server is full
+  - storage notification
+  - mailbox quota
+  - quota exceeded
+  - voicemail received
+  - new voicemail
+  - password expir
+  - review your account
+  - secure your account
+  - reset is required
+  - mandatory verification
+  - account verification
+
+# Phrases used by CNT-002 (credential or payment request).
+credential_phrases:
+  - enter your password
+  - confirm your password
+  - verify your password
+  - reset your password
+  - login credentials
+  - sign in to confirm
+  - confirm your account
+  - verify your account
+  - update your account
+  - re-enter your details
+  - confirm your identity
+  - verify your identity
+  - update your payment
+  - update your billing
+  - credit card number
+  - card details
+  - cvv
+  - social security number
+  - tax id
+  # Modern variants observed in Nazario 2024-2025 corpora.
+  - secure token
+  - security token
+  - verify your email
+  - verify your mailbox
+  - verify mailbox
+  - click here to verify
+  - click to verify
+  - sign in to continue
+  - sign in to verify
+  - re-verify
+  - reverify
+  - reactivate your account
+
+# MIME types and extensions for CNT-003 (executable / macro attachment).
+executable_mime_types:
+  - application/x-msdownload          # .exe
+  - application/x-msdos-program
+  - application/x-executable
+  - application/x-dosexec
+  - application/octet-stream          # generic, weight applies only when
+                                      # combined with a risky extension below
+  - application/vnd.ms-office.macroenabled.12
+  - application/vnd.ms-excel.sheet.macroenabled.12
+  - application/vnd.ms-word.document.macroenabled.12
+  - application/x-iso9660-image       # .iso (recent malware lure)
+  - application/vnd.ms-cab-compressed # .cab
+
+executable_extensions:
+  - .exe
+  - .scr
+  - .bat
+  - .cmd
+  - .com
+  - .pif
+  - .vbs
+  - .js
+  - .jse
+  - .wsf
+  - .wsh
+  - .ps1
+  - .lnk
+  - .iso
+  - .img
+  - .docm
+  - .xlsm
+  - .pptm
+  - .dotm
+
+# Local IOC list paths used by URL-007. Files are plain-text, one
+# domain or full URL per line. Provided lists kept under data/iocs/.
+ioc_lists:
+  - data/iocs/urlhaus_recent.txt
+  - data/iocs/phishtank_recent.txt
+
+# Output settings.
+output:
+  per_email_dir: results/per_email
+  experiment_csv: results/experiment.csv
+  hash_message_id: false   # set true if you need PII-style hashing on filenames
+
+# Runtime.
+runtime:
+  dns_lookup_enabled: true        # set false in air-gapped runs
+  dns_timeout_seconds: 3
+  max_urls_per_email: 100         # safety cap to avoid pathological emails
+  parser_strict: false            # forgiving mode for malformed corpora mail
+
+# Brand keywords HDR-006 matches against the Subject (not the display
+# name; HDR-003 already does that). Same core list as
+# known_brand_keywords plus a few brand names that show up almost
+# exclusively in subjects of compromised-sender phishing.
+subject_brand_keywords:
+  - paypal
+  - microsoft
+  - office365
+  - apple
+  - google
+  - amazon
+  - dhl
+  - fedex
+  - ups
+  - hmrc
+  - irs
+  - revenue
+  - aib
+  - bankofireland
+  - chase
+  - barclays
+  - santander
+  - dropbox
+  - docusign
+  - linkedin
+  - netflix
+  - facebook
+  # Extras observed in Nazario 2024-2025 false-negative review.
+  - fifth third bank
+  - wells fargo
+  - prime membership
+  - monkey.org
+
+# Subject-only pretext phrases for CNT-006. These are credential-theft
+# subject patterns calibrated against the v1 FN sample. Body-side
+# urgency/credential phrasing is already covered by CNT-001/CNT-002;
+# this list lifts the weight when the same kind of phrasing appears
+# in the Subject, where almost no legitimate mail uses it.
+subject_pretext_phrases:
+  - mailbox full
+  - mailbox is full
+  - mailbox quota
+  - mailbox storage
+  - password expire
+  - password expire today
+  - password expires
+  - password expiring
+  - account requires update
+  - account requires verification
+  - account update required
+  - invoice payment
+  - invoice notice
+  - payment confirmation
+  - payment receipt
+  - storage notification
+  - storage full
+  - voicemail message
+  - voicemail received
+  - new voicemail
+  - scanned document
+  - scanned copy
+  - statement of account
+  - monthly statement
+  - shared a document
+  - shared a file
+  - shared with you
+  - document for your review
+  - unread messages
+  - quarantined messages
+  - release pending messages
+  - delivery failure
+  - failed delivery
+  - account locked
+
+# Subject regex lure patterns for CNT-007 (calibration v1.3). Where
+# CNT-006 needs an exact substring, these regex patterns generalise
+# over token order, separators, and small wording variations. Five
+# categories: system-alert, financial-lure, file-sharing impersonation,
+# HR-pretext, and a single credential keyword.
+# Use single-quoted YAML so backslashes stay literal.
+# v3b bug fix: the system-alert noun group uses 'e?mails?' so the word
+# "Email" is matched. The earlier '\bmail\b' could not match inside
+# "Email" (no word boundary before the 'm'), so a subject like
+# "Email Service Alert" silently failed to fire CNT-007.
+subject_lure_patterns:
+  - '\b(mailbox|storage|e?mails?|server|account)\b.*\b(full|alert|notification|notice|warning|locked|quota|exceeded|expir)\b'
+  - '\b(invoice|payment|remittance|purchase[\s\-/_]*order|swift\s*report|soa)\b'
+  - '\b(shared|sent)\s+(you|a|an|the)\b'
+  - '\b(salary|annual leave|payroll|compliance|leave|hr)\b.*\b(upgrade|update|notice|report|review|adjustment|increment)\b'
+  - '\bcredential(s)?\b'
