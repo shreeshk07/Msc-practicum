@@ -1,0 +1,122 @@
+[
+  {
+    "email_id": "email_01",
+    "filename": "session_emails/email_01.eml",
+    "ground_truth": "benign",
+    "sha256": "0377fd70061257ae75dae58f2b3265c0db44f63870a13187b441d8f313178ea3"
+  },
+  {
+    "email_id": "email_02",
+    "filename": "session_emails/email_02.eml",
+    "ground_truth": "phishing",
+    "sha256": "00912d2220502d0fd7b34493fcd25f2a5ec12dcd29f4419e3cb97331c7c7f3e7"
+  },
+  {
+    "email_id": "email_03",
+    "filename": "session_emails/email_03.eml",
+    "ground_truth": "benign",
+    "sha256": "01b9fdd5d983e22b563789d3403a7acd8ffae1c76c219f50b01efe6bc70427fb"
+  },
+  {
+    "email_id": "email_04",
+    "filename": "session_emails/email_04.eml",
+    "ground_truth": "phishing",
+    "sha256": "038726bede212ae2785988176676abe598d66d33a6df8445c33d693a51621ea4"
+  },
+  {
+    "email_id": "email_05",
+    "filename": "session_emails/email_05.eml",
+    "ground_truth": "phishing",
+    "sha256": "02ba4dfce07a4784cc1601bfb87b1eaf171487f8a409732386f50297cfea9c5c"
+  },
+  {
+    "email_id": "email_06",
+    "filename": "session_emails/email_06.eml",
+    "ground_truth": "benign",
+    "sha256": "0143f0b0f89427e039fd67771ab8bcac5735945ddec2d7e8189bf376eac9539b"
+  },
+  {
+    "email_id": "email_07",
+    "filename": "session_emails/email_07.eml",
+    "ground_truth": "benign",
+    "sha256": "05eb8876f3047b0b21fa99b6077622b726b355cc587ec55a8acb850fe81242dd"
+  },
+  {
+    "email_id": "email_08",
+    "filename": "session_emails/email_08.eml",
+    "ground_truth": "benign",
+    "sha256": "00bc48864310a3fe69617e61e8e47a2f6c702ff5932903e18751ffb163d78888"
+  },
+  {
+    "email_id": "email_09",
+    "filename": "session_emails/email_09.eml",
+    "ground_truth": "phishing",
+    "sha256": "001dbdac38c77a020b6bdb6daf3c3e077d69f743108629fd0b360a9c8a17d51a"
+  },
+  {
+    "email_id": "email_10",
+    "filename": "session_emails/email_10.eml",
+    "ground_truth": "benign",
+    "sha256": "00f2413a5421b49a00ec17f35696d9ffa08adf96e0a5b648071c6dfca28df410"
+  },
+  {
+    "email_id": "email_11",
+    "filename": "session_emails/email_11.eml",
+    "ground_truth": "benign",
+    "sha256": "01b9c66834b12d5cd478a7be30bfa077aea13dbd215d782e8aa92545c9b81cfb"
+  },
+  {
+    "email_id": "email_12",
+    "filename": "session_emails/email_12.eml",
+    "ground_truth": "benign",
+    "sha256": "000f0bd024d7530f1fcd5b829038ba88f853b8df9e06407a6e9c0de3b2bdd86a"
+  },
+  {
+    "email_id": "email_13",
+    "filename": "session_emails/email_13.eml",
+    "ground_truth": "phishing",
+    "sha256": "06f65db453bb89ef1284cb6f082b3f63f04218df761ef5f27a275115a05992a5"
+  },
+  {
+    "email_id": "email_14",
+    "filename": "session_emails/email_14.eml",
+    "ground_truth": "benign",
+    "sha256": "00c6b5c94456c635d7259ae4abfb03356ae8d351e1ff1c97a143aeaaa4302d74"
+  },
+  {
+    "email_id": "email_15",
+    "filename": "session_emails/email_15.eml",
+    "ground_truth": "phishing",
+    "sha256": "004de52ef8a737615773af3d2e6810f2a1e4ca72e7e290fa4b98d9e09d7842d8"
+  },
+  {
+    "email_id": "email_16",
+    "filename": "session_emails/email_16.eml",
+    "ground_truth": "benign",
+    "sha256": "050eaed1fb75ccae96f5a4ff17223a951394c2b9bc15d1ef875b9c690c6bb8ed"
+  },
+  {
+    "email_id": "email_17",
+    "filename": "session_emails/email_17.eml",
+    "ground_truth": "phishing",
+    "sha256": "00223657f0fbc4b010bfcc92da7e0e1d9f5b4e2cad1ed1fa0102ae799983e920"
+  },
+  {
+    "email_id": "email_18",
+    "filename": "session_emails/email_18.eml",
+    "ground_truth": "phishing",
+    "sha256": "00a5965532a53a890eca13d0434cb2c5309c92b8c906fe7a8ba0226a55886f83"
+  },
+  {
+    "email_id": "email_19",
+    "filename": "session_emails/email_19.eml",
+    "ground_truth": "phishing",
+    "sha256": "031ac5a3472694e05475e284bbd04900f9232a75c5d86255949bcce0165184c3"
+  },
+  {
+    "email_id": "email_20",
+    "filename": "session_emails/email_20.eml",
+    "ground_truth": "phishing",
+    "sha256": "006464ff20232995eaea9df02def7a1bef327d623a6512b81d8732ececf31f24"
+  }
+]
